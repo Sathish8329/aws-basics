@@ -1,0 +1,146 @@
+aws configure: This command helps you set up your AWS CLI with your AWS access key, secret key, default region, and output format.
+EC2 (Elastic Compute Cloud):
+
+aws ec2 describe-instances: Provides details about your EC2 instances.
+aws ec2 start-instances --instance-ids i-1234567890abcdef0: Starts one or more stopped instances.
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0: Stops one or more running instances.
+aws ec2 terminate-instances --instance-ids i-1234567890abcdef0: Terminates one or more instances.
+S3 (Simple Storage Service):
+
+aws s3 ls: Lists all buckets in your account.
+aws s3 ls s3://bucket-name: Lists all objects in a specific S3 bucket.
+aws s3 cp /path/to/local/file s3://bucket-name/path/to/s3/file: Uploads a file to S3.
+aws s3 rm s3://bucket-name/path/to/s3/file: Deletes an object from S3.
+IAM (Identity and Access Management):
+
+aws iam list-users: Lists all IAM users in your account.
+aws iam create-user --user-name new-user: Creates a new IAM user.
+aws iam create-access-key --user-name user-name: Creates an access key for an IAM user.
+aws iam attach-user-policy --user-name user-name --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess: Attaches an IAM policy to a user.
+Lambda:
+
+aws lambda list-functions: Lists all Lambda functions in your account.
+aws lambda invoke --function-name function-name output.json: Invokes a Lambda function synchronously.
+CloudFormation:
+
+aws cloudformation create-stack --stack-name my-stack --template-body file://template.yaml: Creates a new CloudFormation stack.
+aws cloudformation update-stack --stack-name my-stack --template-body file://template.yaml: Updates an existing CloudFormation stack.
+aws cloudformation delete-stack --stack-name my-stack: Deletes a CloudFormation stack.
+Route 53 (DNS Service):
+
+aws route53 list-hosted-zones: Lists all hosted zones in Route 53.
+aws route53 list-resource-record-sets --hosted-zone-id <zone-id>: Lists all DNS records in a hosted zone.
+Elastic Beanstalk:
+
+aws elasticbeanstalk create-application --application-name my-app: Creates a new Elastic Beanstalk application.
+aws elasticbeanstalk create-environment --application-name my-app --environment-name my-env --solution-stack-name "64bit Amazon Linux 2 v3.0.1 running Docker 20.10.2": Creates a new environment in Elastic Beanstalk.
+
+
+
+
+aws - amazon web service, its highly comprehensive and evolving cloud platform provided by Amazon
+
+
+layers - IaaS infrasture as a service, Paas Platform as a service, Saas Software as a service
+
+s3 - it is an object storage service used to store and retrieve data. It is highly scalable, durable, and can be accessed from anywhere on the web.
+
+ebs - elastic block storage  It provides block-level storage volumes for use with EC2 instances. EBS volumes are similar to virtual hard drives and are typically used for persistent storage.
+
+EFS - elastic file storeage It is a fully managed file storage service for use with AWS EC2 instances. It provides scalable file storage that can be accessed by multiple EC2 instances concurrently.
+
+Ec2 (Elastic Compute Cloud) web service that provides resizable compute capacity in the cloud. It allows users to rent virtual machines (instances) on which they can run their own applications.
+
+On-demand instances: These instances allow you to pay for compute capacity by the hour or by the second with no long-term commitments. They are suitable for applications with short-term, unpredictable workloads.
+
+Reserved instances: Reserved instances provide a significant discount (compared to on-demand pricing) in exchange for a one- or three-year commitment. They are recommended for applications with steady-state or predictable usage.
+
+Spot instances: Spot instances allow you to bid for unused EC2 capacity, often resulting in lower costs compared to on-demand or reserved instances. However, AWS can reclaim these instances with short notice if the current spot price exceeds your bid.
+
+VPC (Virtual Private Cloud) allows you to create a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.
+
+Auto Scaling allows you to automatically adjust the number of EC2 instances in a fleet based on demand. It helps maintain application availability and allows you to scale your infrastructure dynamically.
+
+AWS Lambda is a serverless computing service that lets you run code without provisioning or managing servers. You upload your code, and Lambda takes care of everything required to run and scale your code with high availability.
+
+Explain the difference between IAM users, groups, and roles.
+IAM Users: These are individual users within your AWS account who can interact with AWS resources. Each user has unique security credentials.
+IAM Groups: Groups are collections of IAM users. You can assign permissions to a group, and all users in that group inherit those permissions.
+IAM Roles: Roles are similar to users but are meant to be assumed by anyone or anything that needs it. Roles are often used to grant permissions to AWS services or to temporarily grant access to external entities.
+
+CloudFormation in AWS
+
+AWS CloudFormation is a service that allows you to define your infrastructure as code using a JSON or YAML template. You can create, update, and delete resources as a single unit called a stack.
+
+
+What is the difference between Amazon RDS and Amazon DynamoDB?
+
+Answer:
+Amazon RDS (Relational Database Service): It is a managed relational database service that supports multiple database engines like MySQL, PostgreSQL, Oracle, SQL Server, and MariaDB.
+Amazon DynamoDB: It is a fully managed NoSQL database service that offers fast and predictable performance with seamless scalability. DynamoDB is designed for applications that need single-digit millisecond latency at any scale.
+
+Explain what is meant by Cross-Region Replication in AWS S3.
+
+Answer: Cross-Region Replication is a feature of Amazon S3 that allows you to automatically replicate objects from one S3 bucket to another in a different AWS region. This helps in ensuring data durability and availability across regions.
+What is the AWS Shared Responsibility Model?
+
+Answer: The AWS Shared Responsibility Model defines the division of responsibilities between AWS and the customer regarding security and compliance. AWS is responsible for the security of the cloud infrastructure (such as the data centers, network, and hardware), while the customer is responsible for securing their data in the cloud, configuring their resources securely, and managing access controls.
+How does AWS CloudTrail help with auditing and compliance?
+
+Answer: AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of AWS account activity. It records API calls made on your account and delivers log files to an Amazon S3 bucket. CloudTrail helps in monitoring API activity, understanding who did what and when, and ensuring compliance with internal policies or regulatory requirements.
+What is Elastic Load Balancing in AWS?
+
+Answer: Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses, within one or more availability zones. It helps to ensure high availability and fault tolerance of your applications by detecting unhealthy targets and rerouting traffic to healthy ones.
+Explain the difference between AWS Lambda and AWS EC2.
+
+Answer:
+AWS Lambda: It is a serverless compute service where you upload your code and Lambda manages the infrastructure to execute it. You are billed only for the compute time consumed.
+AWS EC2: It provides resizable compute capacity in the cloud, allowing you to launch and manage virtual servers. With EC2, you have more control over the underlying infrastructure, but you're responsible for managing the servers.
+What is AWS CloudWatch, and how is it used?
+
+Answer: AWS CloudWatch is a monitoring and observability service that provides real-time monitoring of AWS resources and applications running on AWS. It collects and tracks metrics, monitors logs, sets alarms, and automatically reacts to changes in your AWS resources.
+
+
+
+Yes, that's correct. In general, Network Load Balancers (NLBs) operate at the subnet level, while Application Load Balancers (ALBs) operate at the security group level.
+
+Here's a breakdown of how NLBs and ALBs are typically associated with network configurations:
+
+Network Load Balancers (NLBs):
+
+NLBs are associated with one or more subnets within a Virtual Private Cloud (VPC).
+They distribute traffic across targets (such as EC2 instances or IP addresses) within the specified subnets.
+NLBs are designed to handle high volumes of traffic with low latency and are well-suited for use cases that require extreme performance.
+They provide static IP addresses that can be associated with DNS names for external access.
+NLBs operate at the transport layer (Layer 4) of the OSI model.
+Application Load Balancers (ALBs):
+
+ALBs are associated with one or more security groups within a VPC.
+They route traffic based on the content of the application request (such as URL, hostname, or HTTP headers).
+ALBs are highly suited for modern web applications and microservices architectures, as they provide advanced features like path-based routing, host-based routing, and integration with AWS services.
+They operate at the application layer (Layer 7) of the OSI model.
+ALBs do not require static IP addresses, as they are accessed through DNS names provided by AWS.
+
+What is Amazon VPC Peering?
+
+Answer: Amazon VPC Peering allows you to connect two VPCs within the same AWS region through a private IP network. It enables you to route traffic between the VPCs as if they were on the same network, without going over the internet.
+Explain the difference between Amazon SQS and Amazon SNS.
+
+Answer:
+Amazon SQS (Simple Queue Service): It is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. Messages are stored in a queue and can be processed asynchronously by consumers.
+Amazon SNS (Simple Notification Service): It is a fully managed publish/subscribe messaging service that enables you to send messages to multiple subscribers, typically used for push-based, event-driven architectures. SNS supports various protocols like HTTP, HTTPS, Email, SMS, and more.
+What is AWS Elastic Beanstalk?
+
+Answer: AWS Elastic Beanstalk is a platform as a service (PaaS) that allows you to deploy and manage web applications and services developed with various programming languages and frameworks (such as Java, .NET, Node.js, Python, Ruby, etc.) without worrying about the underlying infrastructure. Elastic Beanstalk handles the deployment, capacity provisioning, load balancing, and auto-scaling, making it easier to focus on application development.
+What is AWS ECS (Elastic Container Service)?
+
+Answer: AWS ECS is a fully managed container orchestration service that allows you to run, stop, and manage Docker containers on a cluster of EC2 instances. It provides features like task scheduling, service discovery, auto-scaling, and integration with other AWS services.
+What is AWS S3 Glacier?
+
+Answer: AWS S3 Glacier is a low-cost storage service designed for data archiving and long-term backup. It offers durable and secure storage with configurable retrieval times ranging from minutes to hours. S3 Glacier is suitable for data that is accessed infrequently and requires long-term retention.
+Explain the concept of AWS Well-Architected Framework.
+
+Answer: The AWS Well-Architected Framework is a set of best practices and guidelines for designing and operating reliable, secure, efficient, and cost-effective cloud-based architectures. It consists of five pillars: Operational Excellence, Security, Reliability, Performance Efficiency, and Cost Optimization. The framework helps organizations evaluate their architectures against these pillars and make informed decisions to improve their workloads.
+What is AWS Direct Connect?
+
+Answer: AWS Direct Connect is a dedicated network connection service that allows you to establish a private, high-bandwidth connection between your on-premises data center or network and AWS. It bypasses the public internet, providing a more consistent and secure connection for transferring data between your network and AWS resources.
