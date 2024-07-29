@@ -4,3 +4,13 @@ edit the file to mount
 
 fdisk -l - lists all the disk partitions
 mount -a - to mount everything in the file
+
+Create a volume in the console EBS and select the the path for eg /dev/xvde
+ fdisk /dev/xvde  - once done apply this to the disk
+ 1523  mkfs.ext4 /dev/xvde1 - create the extension number 1 which was given while creating 
+ 1524  mkdir -p /var/lib/mysql create a director which you want to mount
+ 1525  vi /etc/fstab edit it - with extention , which directory, extension type defaults and value for eg.  /dev/xvde1      /var/lib/mysql  ext4    defaults        0 0
+ 1526  mount -a, then mount it
+ 1527  sudo systemctl daemon-reload - restart the daemon-reload
+ 1528  mount -a 
+ 1529  df -h - now the check the status
