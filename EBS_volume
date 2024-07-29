@@ -1,0 +1,6 @@
+vi /etc/fstab
+
+edit the file to mount 
+
+fdisk -l - lists all the disk partitions
+mount -a - to mount everything in the file
